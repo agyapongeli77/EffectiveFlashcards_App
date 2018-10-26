@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/rootview"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/flashcard_question"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:text="What is the most popular web-based hosting service for version control in the world?"
+        android:textSize="27sp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/card_background"
+        android:elevation="6dp"
+        android:textColor="#00004d"
+       />
+
+    <TextView
+        android:id="@+id/multiple_choice_GitLab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/flashcard_question"
+        android:text="GitLab"
+        android:elevation="10dp"
+        android:background="#ff944d"
+        android:textColor="#00004d"
+        android:gravity="center"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/multiple_choice_GitHub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/multiple_choice_GitLab"
+        android:text="Github"
+        android:elevation="10dp"
+        android:background="#ff944d"
+        android:textColor="#00004d"
+        android:gravity="center"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/multiple_choice_Bitbucket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/multiple_choice_GitHub"
+        android:text="Bitbucket"
+        android:elevation="10dp"
+        android:background="#ff944d"
+        android:textColor="#00004d"
+        android:gravity="center"
+        android:textSize="35sp" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="30sp"
+        android:id="@+id/toggle_choices_visibility"
+        android:layout_below="@id/multiple_choice_Bitbucket"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/hide_icon"/>
+
+
+</RelativeLayout>
