@@ -30,7 +30,7 @@ public class AddCardActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String question = ((EditText) findViewById(R.id.questionTextField)).getText().toString();
-                String answer = ((EditText) findViewById(R.id.questionTextField)).getText().toString();
+                String answer = ((EditText) findViewById(R.id.answerTextField)).getText().toString();
 
                 Intent data = new Intent(); // create a new Intent, this is where we will put our data
                 data.putExtra("string1", question); // puts the question data collected from the user into the Intent, with the key as 'string1'
