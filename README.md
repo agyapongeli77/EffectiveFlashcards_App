@@ -1,5 +1,23 @@
 # EffectiveFlashcards_App
 
+## Lab 2
+
+### App Description
+This Flashcard App allows users to create their own flashcard whenever they want to study something new.
+
+### App Walk-though
+
+<img src="https://github.com/agyapongeli77/EffectiveFlashcards_App/raw/master/EffectiveFlashcards_lab2required.gif" width=200><br>
+
+## Required
+- [x] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
+- [x] The 'Add Card Screen' has a cancel button to take the user back to the main screen
+- [x] User can enter and submit a Question and Answer through the 'Add Card Screen'
+- [x] User will see the card they just created on the main screen when they press the 'Save Button'
+- [x] Push your progress to GitHub!
+
+
+
 ## Lab 1
 
 ### App Description
@@ -8,9 +26,6 @@ A simple flashcard that displays a question and respond to a user's tap to displ
 ### App Walk-though
 
 <img src="https://github.com/agyapongeli77/EffectiveFlashcards_App/raw/master/EffectiveFlashcards_lab1.gif" width=200><br>
-
-
-## User Stories
 
 ### Required
 - [x] Create New Project in Android Studio
