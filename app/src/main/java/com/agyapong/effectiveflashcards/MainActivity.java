@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     boolean isShowingAnswers = false;
+    TextView questionToDisplay;
+    TextView answerToDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,8 +96,10 @@ public class MainActivity extends AppCompatActivity {
 
             // sets the question and answer TextViews to the new question and answer data that user
             // inputted at the AddCardActivity and was passed to the main activity
-            ((TextView)findViewById(R.id.flashcard_question)).setText(string1);
-            ((TextView)findViewById(R.id.multiple_choice_GitHub)).setText(string2);
+            questionToDisplay = findViewById(R.id.flashcard_question);
+            questionToDisplay.setText(string1);
+            answerToDisplay = findViewById(R.id.multiple_choice_GitHub);
+            answerToDisplay.setText(string2);
 
 
             // Hide the other multiple choice answers since they are not in the Required challenge

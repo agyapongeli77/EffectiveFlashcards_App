@@ -14,7 +14,7 @@ public class AddCardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_card);
 
         // dismisses or closes the AddCardActivity(Add Card Screen) and takes the user back
-        // to the Main Activitity(Main Screen) when the cancel button is clicked by the user
+        // to the Main Activitity (Main Screen) when the cancel button is clicked by the user
         findViewById(R.id.cancel_action_icon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,7 +37,6 @@ public class AddCardActivity extends AppCompatActivity {
                 data.putExtra("string2", answer); // puts the answer data collected from the user into the Intent, with the key as 'string2
                 setResult(RESULT_OK, data); // set result code and bundle data for response
                 finish(); // closes this activity and pass data to the original activity that launched this activity
-
             }
         });
     }
