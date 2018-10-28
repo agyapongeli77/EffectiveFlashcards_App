@@ -44,10 +44,10 @@ public class AddCardActivity extends AppCompatActivity {
                 // grabs the 2nd wrong answer from user and stores into a cwrong answer 2 string variable
                 wrongAnswer2 = ((EditText) findViewById(R.id.wrongAns2_TextField)).getText().toString();
 
-
+                //Toast Message to show an error message to the user if they didn't populate all the textfields
                 if (question.equalsIgnoreCase("") || correctAnswer.equalsIgnoreCase("")
                     || wrongAnswer1.equalsIgnoreCase("") || wrongAnswer2.equalsIgnoreCase("")){
-                    Toast.makeText(getApplicationContext(), "Must enter both question and answer", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Must enter text in all fields", Toast.LENGTH_SHORT).show();
                 }else {
                     Intent data = new Intent(); // create a new Intent, this is where we will put our data
 
