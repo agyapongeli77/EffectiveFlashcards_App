@@ -7,7 +7,7 @@ This Flashcard App allows users to create their own flashcard whenever they want
 
 ### App Walk-though
 
-<img src="https://github.com/agyapongeli77/EffectiveFlashcards_App/raw/master/EffectiveFlashcards_lab2required.gif" width=200><br>
+<img src="https://github.com/agyapongeli77/EffectiveFlashcards_App/raw/master/EffectiveFlashcards_lab2optional.gif" width=200><br>
 
 ## Required
 - [x] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
@@ -15,6 +15,13 @@ This Flashcard App allows users to create their own flashcard whenever they want
 - [x] User can enter and submit a Question and Answer through the 'Add Card Screen'
 - [x] User will see the card they just created on the main screen when they press the 'Save Button'
 - [x] Push your progress to GitHub!
+
+## Optional
+- [x] User can edit a card
+- [x] An error message is shown if the user doesn't enter both a Question and an Answer
+- [x] A notification is shown if the card was created successfully
+- [x] User can also enter multiple choice answers when creating a card
+- [x] App is further styled and customized!
 
 
 
