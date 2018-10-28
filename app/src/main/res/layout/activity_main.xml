@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/rootview"
+    android:background="#008577"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -18,12 +19,12 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:background="@drawable/card_background"
-        android:elevation="6dp"
+        android:elevation="20dp"
         android:textColor="#00004d"
        />
 
     <TextView
-        android:id="@+id/multiple_choice_GitLab"
+        android:id="@+id/wrong_choice1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="15dp"
@@ -38,13 +39,13 @@
         android:textSize="35sp" />
 
     <TextView
-        android:id="@+id/multiple_choice_GitHub"
+        android:id="@+id/correct_choice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/multiple_choice_GitLab"
+        android:layout_below="@id/wrong_choice1"
         android:text="Github"
         android:elevation="10dp"
         android:background="#ff944d"
@@ -53,13 +54,13 @@
         android:textSize="35sp" />
 
     <TextView
-        android:id="@+id/multiple_choice_Bitbucket"
+        android:id="@+id/wrong_choice2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/multiple_choice_GitHub"
+        android:layout_below="@id/correct_choice"
         android:text="Bitbucket"
         android:elevation="10dp"
         android:background="#ff944d"
@@ -72,17 +73,26 @@
         android:layout_width="40dp"
         android:layout_height="120dp"
         android:layout_marginTop="30sp"
-        android:layout_below="@id/multiple_choice_Bitbucket"
+        android:layout_below="@id/wrong_choice2"
         android:layout_centerHorizontal="true"
         android:src="@drawable/hide_icon"/>
 
     <ImageView
         android:id="@+id/add_card_icon"
         android:layout_width="40dp"
-        android:layout_below="@+id/multiple_choice_Bitbucket"
+        android:layout_below="@+id/wrong_choice2"
         android:layout_marginTop="30sp"
-        android:layout_alignRight="@id/multiple_choice_Bitbucket"
+        android:layout_alignRight="@id/wrong_choice2"
         android:layout_height="120dp"
         android:src="@drawable/add_icon" />
+
+    <ImageView
+        android:id="@+id/edit_card_icon"
+        android:layout_width="40dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/wrong_choice2"
+        android:layout_marginTop="30sp"
+        android:layout_alignLeft="@id/wrong_choice2"
+        android:src="@drawable/edit_icon"/>
 
 </RelativeLayout>

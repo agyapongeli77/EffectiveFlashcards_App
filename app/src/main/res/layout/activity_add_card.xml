@@ -33,12 +33,33 @@
         android:inputType="textMultiLine" />
 
     <EditText
-        android:id="@+id/answerTextField"
+        android:id="@+id/correctAnsTextField"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="20dp"
         android:layout_below="@id/questionTextField"
-        android:hint="Enter The Answer Here"
+        android:hint="Enter The Correct Answer Here"
+        android:textColorHighlight="#7cff88"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/wrongAns1_TextField"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:layout_below="@id/correctAnsTextField"
+        android:textColorHighlight="#7cff88"
+        android:hint="Enter Wrong Answer Option Here"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/wrongAns2_TextField"
+        android:layout_width="match_parent"
+        android:textColorHighlight="#7cff88"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:layout_below="@id/wrongAns1_TextField"
+        android:hint="Enter Another Wrong Answer Option Here"
         android:inputType="textMultiLine" />
 
 </RelativeLayout>
