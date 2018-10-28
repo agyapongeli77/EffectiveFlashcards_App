@@ -7,7 +7,7 @@ This Flashcard App allows users to create their own flashcard whenever they want
 
 ### App Walk-though
 
-<img src="https://github.com/agyapongeli77/EffectiveFlashcards_App/raw/master/EffectiveFlashcards_lab2optional.gif" width=200><br>
+<img src="https://github.com/agyapongeli77/EffectiveFlashcards_App/raw/master/EffectiveFlashcards_lab2optionalupdate.gif" width=200><br>
 
 ## Required
 - [x] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
