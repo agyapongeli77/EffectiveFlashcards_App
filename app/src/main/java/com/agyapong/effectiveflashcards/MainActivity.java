@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     boolean isShowingAnswers = false;
@@ -15,10 +19,28 @@ public class MainActivity extends AppCompatActivity {
     // strings to store to current qstn & answers from the main screen textviews
     String currentQuestion, currentCorrectAns, currentWrongAns1, currentWrongAns2;
 
+    //working with the database
+    FlashcardDatabase flashcardDatabase; //instance of our database
+    List<Flashcard> allFlashcards; //contains all the saved flashcards
+
+    int currentCardDisplayedIndex = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // retrieve all the flashcards from the database
+        flashcardDatabase = new FlashcardDatabase(this);
+        allFlashcards = flashcardDatabase.getAllCards();
+
+        if (allFlashcards != null && allFlashcards.size() > 0) {
+            ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get(0).getQuestion());
+            ((TextView) findViewById(R.id.correct_choice)).setText(allFlashcards.get(0).getAnswer());
+            ((TextView) findViewById(R.id.wrong_choice1)).setText(allFlashcards.get(0).getWrongAnswer1());
+            ((TextView) findViewById(R.id.wrong_choice2)).setText(allFlashcards.get(0).getWrongAnswer2());
+        }
+
 
         // this is a wrong answer(@ position 1 on main screen) so set the background to RED when user clicks this option
         findViewById(R.id.wrong_choice1).setOnClickListener(new View.OnClickListener() {
@@ -111,13 +133,34 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivityForResult(data, 100);
             }
         });
+
+        //takes the user the next flashcard when the next button is clicked
+        findViewById(R.id.next_card_icon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // advance our pointer index so we can show the next card
+                currentCardDisplayedIndex++;
+
+                // make sure we don't get an IndexOutOfBoundsError if we are viewing the last indexed card in our list
+                if (currentCardDisplayedIndex > allFlashcards.size() - 1) {
+                    currentCardDisplayedIndex = 0;
+                }
+
+                // set the question and answer TextViews with data from the database
+                ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get(currentCardDisplayedIndex).getQuestion());
+                ((TextView) findViewById(R.id.correct_choice)).setText(allFlashcards.get(currentCardDisplayedIndex).getAnswer());
+                ((TextView) findViewById(R.id.wrong_choice1)).setText(allFlashcards.get(currentCardDisplayedIndex).getWrongAnswer1());
+                ((TextView) findViewById(R.id.wrong_choice2)).setText(allFlashcards.get(currentCardDisplayedIndex).getWrongAnswer2());
+            }
+        });
+
+
     }
 
     // this method is responsible for getting the data passed from the AddCardActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 100) { // this 100 needs to match the 100 we used when we called startActivityForResult!
-
             // data received from AddCardActivity (add card screen) stored into these strings with
             // keys matching what was passed from the add card screen
             String userQuestionInput = data.getExtras().getString("string1");
@@ -141,6 +184,13 @@ public class MainActivity extends AppCompatActivity {
             //the text to display and
             //the length you want the snackbar display text to stay */
             Snackbar.make(mainScreenQstn.getRootView(),"Card successfully created",Snackbar.LENGTH_SHORT).show();
+
+
+            allFlashcards = flashcardDatabase.getAllCards();
+            flashcardDatabase.insertCard(new Flashcard(userQuestionInput,userCorrectAnsInput, userWrongAns1Input, userWrongAns2Input));
+
+
+
         }
     }
 
