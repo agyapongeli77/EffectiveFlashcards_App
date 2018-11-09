@@ -186,8 +186,8 @@ public class MainActivity extends AppCompatActivity {
             Snackbar.make(mainScreenQstn.getRootView(),"Card successfully created",Snackbar.LENGTH_SHORT).show();
 
 
-            allFlashcards = flashcardDatabase.getAllCards();
             flashcardDatabase.insertCard(new Flashcard(userQuestionInput,userCorrectAnsInput, userWrongAns1Input, userWrongAns2Input));
+            allFlashcards = flashcardDatabase.getAllCards();
 
 
 
