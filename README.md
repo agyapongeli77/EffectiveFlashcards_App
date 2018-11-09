@@ -1,5 +1,19 @@
 # EffectiveFlashcards_App
 
+## Lab 3
+
+### App Description
+Flashcard has been updated to allow users to save multiple cards they create so that they can revisit the app to review their cards.
+
+### App Walk-though
+
+<img src="https://github.com/agyapongeli77/EffectiveFlashcards_App/raw/master/EffectiveFlashcards_lab3required.gif" width=200><br>
+
+## Required
+- [x] User can create a card and still see their created card when the app is relaunched.
+- [x] User can create muliple cards and browse through all created cards
+
+
 ## Lab 2
 
 ### App Description
