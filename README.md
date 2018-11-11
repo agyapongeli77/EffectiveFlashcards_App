@@ -7,11 +7,24 @@ Flashcard has been updated to allow users to save multiple cards they create so 
 
 ### App Walk-though
 
-<img src="https://github.com/agyapongeli77/EffectiveFlashcards_App/raw/master/EffectiveFlashcards_lab3required.gif" width=200><br>
+<img src="https://github.com/agyapongeli77/EffectiveFlashcards_App/raw/master/EffectiveFlashcards_lab3optional.gif" width=200><br>
 
 ## Required
 - [x] User can create a card and still see their created card when the app is relaunched.
 - [x] User can create muliple cards and browse through all created cards
+
+## Optional
+- [x] User can delete a card and no longer see it in their deck anymore
+- [x] Flashcards are shown in random order instead of the order they were created in
+- [x] User can edit a card and see the edit saved when they browse through their deck of cards
+- [x] User can create flashcards with multiple answers and be able to browse through cards with multiple choice answers shown
+- [x] Display an empty state in form of a text if the card is empty and the user cannot delete
+
+## More Optional I Personally Added
+- [x] A notification is shown if the card was edited successfully
+- [x] A notification/instruction is shown when a card is deleted
+- [x] Display an empty state in form of a text if the card is empty and the user cannot edit or move to the next card
+
 
 
 ## Lab 2
