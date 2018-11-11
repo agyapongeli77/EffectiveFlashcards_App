@@ -9,6 +9,10 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
+// FlashcardDao : Dao stands for Data Access Objects.
+// This is a fancy way of saying that this class lets
+// us perform SQL queries without actually having to write
+// complicated SQL queries.
 @Dao
 public interface FlashcardDao {
     @Query("SELECT * FROM flashcard")

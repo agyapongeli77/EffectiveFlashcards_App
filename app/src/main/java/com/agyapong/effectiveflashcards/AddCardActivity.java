@@ -48,6 +48,7 @@ public class AddCardActivity extends AppCompatActivity {
                 if (question.equalsIgnoreCase("") || correctAnswer.equalsIgnoreCase("")
                     || wrongAnswer1.equalsIgnoreCase("") || wrongAnswer2.equalsIgnoreCase("")){
                     Toast.makeText(getApplicationContext(), "Must enter text in all fields", Toast.LENGTH_SHORT).show();
+
                 }else {
                     Intent data = new Intent(); // create a new Intent, this is where we will put our data
 

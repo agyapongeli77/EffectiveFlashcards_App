@@ -5,6 +5,10 @@ import android.content.Context;
 
 import java.util.List;
 
+
+    // FlashcardDatabase : This is an extra class created to easily
+    // interact with the database with helper functions that use
+    // FlashcardDao directly
 public class FlashcardDatabase {
     private final AppDatabase db;
 

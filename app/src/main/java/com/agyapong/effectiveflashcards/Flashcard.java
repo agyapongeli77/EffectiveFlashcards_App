@@ -9,6 +9,8 @@ import android.support.annotation.Nullable;
 
 import java.util.UUID;
 
+// Flashcard : This class defines objects that we put in the database.
+// For every field in Flashcard, a column is created in the database
 @Entity
 public class Flashcard {
 
