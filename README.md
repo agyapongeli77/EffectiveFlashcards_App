@@ -1,5 +1,23 @@
 # EffectiveFlashcards_App
 
+## Lab 4
+
+### App Description
+This Flashcard App allows users to create their own flashcard whenever they want to study something new.
+
+### App Walk-though
+
+<img src="https://github.com/agyapongeli77/EffectiveFlashcards_App/raw/master/lab4required%26optional.gif" width=200><br>
+
+## Required
+- [x] User sees a transition animation when going from the main screen to the add card screen.
+- [x] User sees flashcards animating in / out when the 'next' button is tapped
+
+## Optional
+- [x] Extra styling is added!
+- [x] User sees a countdown timer for each question
+- [x] User sees a celebration animation with confetti when they answer a question correctly
+
 ## Lab 3
 
 ### App Description
