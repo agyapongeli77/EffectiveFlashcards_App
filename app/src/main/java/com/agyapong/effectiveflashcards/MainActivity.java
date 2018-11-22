@@ -1,14 +1,19 @@
 package com.agyapong.effectiveflashcards;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.plattysoft.leonids.ParticleSystem;
 
 import java.util.List;
 import java.util.Random;
@@ -16,7 +21,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     TextView qstnView;
-
+    CountDownTimer countDownTimer; // countdown timer declaration
     boolean isShowingAnswers = false;
     private final static int EDIT_CARD_REQUEST_CODE = 200;
     private final static int ADD_CARD_REQUEST_CODE = 100;
@@ -69,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.correct_choice).setBackgroundColor(getResources().getColor(R.color.my_green_color));
+
+                // some confetti is thrown when the correct answer is chosen
+                new ParticleSystem(MainActivity.this, 100, R.drawable.confetti, 3000)
+                        .setSpeedRange(0.2f, 0.5f)
+                        .oneShot(findViewById(R.id.correct_choice), 100);
             }
         });
         // this is a another wrong answer(@ position 3 on main screen) so set the background to RED when user clicks this option
@@ -127,6 +137,9 @@ public class MainActivity extends AppCompatActivity {
                 // startActivityForResult specifies that we expect result(data) to be returned back
                 // from the AddCardActivity to the Main Activity
                 MainActivity.this.startActivityForResult(intent, ADD_CARD_REQUEST_CODE );
+                // animates the Main Screen to go out to the left and AddCardActivity to come in from the right.
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+
             }
         });
 
@@ -195,6 +208,32 @@ public class MainActivity extends AppCompatActivity {
                     ((TextView) findViewById(R.id.wrong_choice1)).setText(allFlashcards.get(randomNumber).getWrongAnswer1());
                     ((TextView) findViewById(R.id.wrong_choice2)).setText(allFlashcards.get(randomNumber).getWrongAnswer2());
                 }
+
+                final Animation leftOutAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.left_out);
+                final Animation rightInAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.right_in);
+
+                findViewById(R.id.flashcard_question).startAnimation(leftOutAnim);// start animation
+
+                leftOutAnim.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        // this method is called when the animation first starts
+                        findViewById(R.id.flashcard_question).startAnimation(leftOutAnim);// ends animation
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        // this method is called when the animation is finished playing
+                        findViewById(R.id.flashcard_question).startAnimation(rightInAnim);// ends animation
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                        // we don't need to worry about this method
+                    }
+                });
+
+                startTimer(); // start countdown whenever a new card is shown
             }
         });
 
@@ -202,7 +241,6 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.delete_card_icon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 // if there are no flashcards in the database,
                 if (allFlashcards.isEmpty()) {
@@ -230,8 +268,19 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar.make(qstnView.getRootView(), "Card deleted! Add a new card or click next button to show the next flashcard", Snackbar.LENGTH_LONG).show();
                 }
             }
-
         });
+
+        // countdown timer initialization
+        countDownTimer = new CountDownTimer(16000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                ((TextView) findViewById(R.id.timer)).setText("" + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+            }
+        };
+
+        startTimer(); // start countdown on the first card when the app is first opened
     }
 
     // this method is responsible for getting the data passed from the AddCardActivity
@@ -319,5 +368,12 @@ public class MainActivity extends AppCompatActivity {
 
         ((ImageView) findViewById(R.id.toggle_choices_visibility)).setImageResource(R.drawable.show_icon);
 
+    }
+
+    // countdown method  to start and end countdown timer. This prevents multiple
+    // timers from running simultaneously and having multiple countdowns displayed to the user.
+    private void startTimer() {
+        countDownTimer.cancel();
+        countDownTimer.start();
     }
 }

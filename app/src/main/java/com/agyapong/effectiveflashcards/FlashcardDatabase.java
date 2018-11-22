@@ -2,6 +2,8 @@ package com.agyapong.effectiveflashcards;
 
 import android.arch.persistence.room.Room;
 import android.content.Context;
+import android.view.View;
+import android.widget.TextView;
 
 import java.util.List;
 
